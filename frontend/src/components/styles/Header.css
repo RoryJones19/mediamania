@@ -1,0 +1,8 @@
+.headerRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.Link {
+    justify-content: space-between;
+}
