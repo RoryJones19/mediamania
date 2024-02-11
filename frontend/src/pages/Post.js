@@ -4,14 +4,14 @@ import { useState } from 'react';
 function Post () {
 
     const [title, setTitle] = useState("");
-    const [artist, setArtist] = useState("");
+    const [content, setContent] = useState("");
 
     const handleSubmit = async e => {
         e.preventDefault();
 
         let newObj = {
             title: title,
-            artist: artist
+            content: content
         }
 
         console.log(newObj)
@@ -30,9 +30,9 @@ function Post () {
                     />
                 <label></label>
                     <input type="text"
-                    value={artist}
-                    placeholder="Artist"
-                    onChange={(e) => setArtist(e.target.value)}
+                    value={content}
+                    placeholder="Content"
+                    onChange={(e) => setContent(e.target.value)}
                     />
                 <input type="submit"/>
             </form>
