@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors'
 import posts from "./routes/posts.mjs";
 import routes from "./routes/routes.mjs"
 
@@ -10,6 +11,7 @@ const PORT = process.env.port || 5050;
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 // load routes
 app.use("/posts", posts);

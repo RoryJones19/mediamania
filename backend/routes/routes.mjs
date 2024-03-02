@@ -15,7 +15,21 @@ router.get("/", async (req, res) => {
   });
 
 router.post("/new-book", async (req, res) => {
-    
+    /*
+    let testBook = {
+        title: "The Sun Also Rises",
+        author: "Ernest Hemingway",
+        consumed: true,
+        genre: "Fiction",
+        notes: ""
+    }
+    */
+
+    let newBook = req.body;
+    newBook.date = new Date();
+    let collection = await db.collection("Books");
+    let result = collection.insertOne(newBook);
+    res.send(result).status(204);
 });
 
 export default router

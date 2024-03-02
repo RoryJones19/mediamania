@@ -1,21 +1,27 @@
 import Header from "../components/Header";
 import { useState } from 'react';
+import axios from 'axios';
 
 function Post () {
 
     const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
+    const [author, setAuthor] = useState("");
+    const [consumed, setConsumed] = useState(false);
+    const [genre, setGenre] = useState("");
+    const [notes, setNotes] = useState("");
 
     const handleSubmit = async e => {
         e.preventDefault();
 
-        let newObj = {
+        axios.post("/new-book", {
             title: title,
-            content: content
-        }
-
-        console.log(newObj)
+            author: author,
+            consumed: consumed,
+            genre: genre,
+            notes: notes
+        })
     }
+    
     return (
         <div>
             <Header></Header>
@@ -28,11 +34,24 @@ function Post () {
                     placeholder="Title"
                     onChange={(e) => setTitle(e.target.value)}
                     />
-                <label></label>
                     <input type="text"
-                    value={content}
-                    placeholder="Content"
-                    onChange={(e) => setContent(e.target.value)}
+                    value={author}
+                    placeholder="Author"
+                    onChange={(e) => setAuthor(e.target.value)}
+                    />
+                    <input type="checkbox"
+                    value={true}
+                    onChange={(e) => setConsumed(e.target.value)}
+                    />
+                    <input type="text"
+                    value={genre}
+                    placeholder="Genre"
+                    onChange={(e) => setGenre(e.target.value)}
+                    />
+                    <input type="text"
+                    value={notes}
+                    placeholder="Notes"
+                    onChange={(e) => setNotes(e.target.value)}
                     />
                 <input type="submit"/>
             </form>
