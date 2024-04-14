@@ -14,17 +14,16 @@ router.get("/", async (req, res) => {
     res.send(results).status(200);
   });
 
-router.post("/new-book", async (req, res) => {
-    /*
-    let testBook = {
-        title: "The Sun Also Rises",
-        author: "Ernest Hemingway",
-        consumed: true,
-        genre: "Fiction",
-        notes: ""
-    }
-    */
+// route to get all books
+router.get("/books", async (req, res) => {
+    let collection = await db.collection("Books");
+    let allBooks = await collection.find().toArray();
+    console.log(allBooks);
+    res.send(allBooks).status(204);
+});
 
+// route to add new book
+router.post("/new-book", async (req, res) => {
     let newBook = req.body;
     newBook.date = new Date();
     let collection = await db.collection("Books");

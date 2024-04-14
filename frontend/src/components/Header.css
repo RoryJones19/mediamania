@@ -1,8 +1,20 @@
 .headerRow {
     display: flex;
     flex-direction: row;
+    text-decoration: none;
+
 }
 
-.Link {
+.link {
     justify-content: space-between;
+    text-decoration: none;
 }
+
+.link:hover{
+    text-decoration: underline;
+}
+
+:visited {
+    color: purple
+}
+

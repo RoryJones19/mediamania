@@ -5,6 +5,7 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Blog from "./pages/Blog";
 import Post from "./pages/Post";
+import Library from "./pages/Library"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/About" element={<About />}></Route>
         <Route path="/Blog" element={<Blog />}></Route>
         <Route path="/Post" element={<Post />}></Route>
+        <Route path ="/Library" element={<Library />}></Route>
       </Routes>
     </BrowserRouter>
   );
